@@ -113,7 +113,10 @@ run cp rootfs/etc/systemd/system/navit.service /etc/systemd/system
 echo "-> Enabling service: navit"
 run systemctl enable navit.service
 
-printf "\nSuccess!\n"
+VERSION="v$(command date +"%Y-%m-%d") ARCH"
+echo "$VERSION" > /etc/version_stamp
+
+printf "\nSuccessfully configured Speedsaver (version: %s\n" "$VERSION)!"
 printf "Place the map files here: /usr/local/share/navit/maps\n"
 printf "After that, simply reboot the system.\n\n"
 printf "Drive safely!\n"
