@@ -5,6 +5,8 @@
 # Author: Zoltán Kéri <z@zolk3ri.name>
 # Version: v0.0.1
 
+ROOT=$(dirname "$(readlink -f "$0")")
+
 if [ "$(id -u)" -ne 0 ]; then
   echo "$0: you must be root."
   exit 1
@@ -33,7 +35,7 @@ run() {
   fi
 }
 
-cd "$HOME" || echo "Failed to change directory to $HOME, exiting."
+cd "$HOME" || (echo "Failed to change directory to $HOME, exiting." && exit 1)
 
 echo "-> Initializing pacman keyring"
 run pacman-key --init
@@ -54,7 +56,9 @@ run cd ArduiPi_OLED && run make && run make install && cd ..
 echo "-> Fetching, compiling, and installing navit"
 run git clone https://github.com/Speedsaver/navit
 cd navit && run meson setup build && cd build && run ninja \
-  && run ninja install && cd ../..
+  && run ninja install
+
+cd "$ROOT" || (echo "Failed to change directory to $ROOT, exiting." && exit 1)
 
 echo "-> Configuring chronyd"
 run cp rootfs/etc/chrony.conf /etc
