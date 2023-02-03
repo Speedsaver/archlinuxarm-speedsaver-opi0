@@ -67,11 +67,11 @@ run systemctl enable chronyd
 echo "-> Starting service: chronyd"
 run systemctl start chronyd
 echo "-> Disabling service: systemd-timesyncd"
-systemctl disable systemd-timesyncd
+run systemctl disable systemd-timesyncd
 echo "-> Stopping service: systemd-timesyncd"
-systemctl stop systemd-timesyncd
+run systemctl stop systemd-timesyncd
 echo "-> Enabling network time synchronization (NTP)"
-timedatectl set-ntp true
+run timedatectl set-ntp true
 
 echo "-> Configuring gpsd"
 run cp rootfs/etc/default/gpsd /etc/default
