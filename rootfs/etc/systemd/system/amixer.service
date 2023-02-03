@@ -1,0 +1,15 @@
+[Unit]
+Description=Set sound card settings
+ConditionPathExists=!/var/lib/alsa/asound.state
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/amixer sset "Line Out" on
+ExecStart=/usr/bin/amixer sset "Line Out" 100%
+ExecStart=/usr/bin/amixer sset  "Line Out Source" "Mono Differential"
+ExecStart=/usr/bin/amixer sset "DAC" on
+ExecStart=/usr/bin/amixer sset "DAC" 100%
+ExecStart=/usr/bin/alsactl store
+
+[Install]
+WantedBy=sound.target

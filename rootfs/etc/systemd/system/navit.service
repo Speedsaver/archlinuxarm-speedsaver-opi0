@@ -1,0 +1,11 @@
+[Unit]
+Description=Navit software
+After=gpsd.service
+Wants=gpsd.service
+
+[Service]
+ExecStart="/usr/local/bin/navit"
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target

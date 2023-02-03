@@ -1,0 +1,10 @@
+<config>
+  <debug name="global" dbg_level="error"/>
+  <navit imperial="1">
+    <vehicle name="Local GPS" enabled="yes" active="1" source="gpsd://localhost" gpsd_query="w+xj"/>
+    <tracking />
+    <mapset enabled="yes">
+      <maps type="binfile" data="/usr/local/share/navit/maps/*.bin" />
+    </mapset>
+  </navit>
+</config>

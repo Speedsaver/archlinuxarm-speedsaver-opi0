@@ -1,0 +1,10 @@
+[Unit]
+Description=Play a bootup sound
+After=multi-user.target
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/aplay -q /usr/local/share/speedsaver/startup.wav
+
+[Install]
+WantedBy=multi-user.target
