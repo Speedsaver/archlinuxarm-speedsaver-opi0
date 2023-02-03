@@ -107,6 +107,7 @@ echo "-> Copying amixer.service to /etc/systemd/system"
 run cp rootfs/etc/systemd/system/amixer.service /etc/systemd/system
 echo "-> Enabling service: amixer"
 run systemctl enable amixer.service
+echo "-> Starting service: amixer (to adjust sound card settings)"
 run systemctl start amixer.service
 
 echo "-> Copying bootup-sound.service to /etc/systemd/system"
