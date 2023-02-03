@@ -44,7 +44,8 @@ echo "-> Performing a full system upgrade"
 run pacman --noconfirm -Syu
 
 echo "-> Installing the necessary packages"
-run pacman --noconfirm -S base-devel git meson cmake ninja glib2 chrony gpsd
+run pacman --noconfirm -S base-devel usbutils alsa-utils lm_sensors git meson \
+    cmake ninja glib2 chrony gpsd screen vim
 
 echo "-> Fetching, compiling, and installing ArduiPi_OLED"
 run git clone https://github.com/Speedsaver/ArduiPi_OLED
