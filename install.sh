@@ -33,7 +33,7 @@ run() {
   fi
 }
 
-cd "$HOME" || echo "Failed to change directory to $HOME, exiting." && exit 1
+cd "$HOME" || echo "Failed to change directory to $HOME, exiting."
 
 echo "-> Initializing pacman keyring"
 run pacman-key --init
