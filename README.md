@@ -7,7 +7,46 @@ archlinuxarm-speedsaver-opi0
 
 For documentation consult file `install.sh`.
 
-Authors
-=======
+# Basics
+
+Use the instructions provided [here](https://github.com/Speedsaver/archlinuxarm-orangepi-zero) to install Arch Linux on the SD card.
+
+By default `sshd` is enabled and starts at boot.
+The default user is `alarm`, and its password is `alarm`.
+The default root password is `root`.
+
+# Adding maps
+
+There are at least three ways to add maps.
+The directory is `/usr/local/share/navit/maps` on the box with Arch Linux.
+Do not forget to restart `navit` after adding the maps:
+
+    # systemctl restart navit
+
+## Example #1 (using scp)
+
+On your local machine (to copy the file through SSH):
+
+	$ scp /home/local/map.bin alarm@alarm:/home/alarm/
+
+then SSH into the box and run the following command (as root):
+
+	# mv /home/alarm/map.bin /usr/local/share/navit/maps
+
+## Example #2 (using curl)
+
+SSH into the box and download the map straight into the directory:
+
+	# cd /usr/local/share/navit/maps
+	# curl -O https://foo.bar/map.bin
+
+## Example #3 (using mount and cp)
+
+Mount the storage device (e.g. USB stick, here `/dev/sdc1`):
+
+	# mount /dev/sdc1 /mnt
+	# cp /mnt/map.bin /usr/local/share/navit/maps
+
+# Authors
 
 Zoltán Kéri <z@zolk3ri.name>
