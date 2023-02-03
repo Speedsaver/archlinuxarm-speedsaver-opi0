@@ -15,6 +15,12 @@ By default `sshd` is enabled and starts at boot.
 The default user is `alarm`, and its password is `alarm`.
 The default root password is `root`.
 
+The `install.sh` script serves the purpose of automating the set up of `Speedsaver`.
+All you have to do is SSH into the box and run the script as root.
+You can specify verbosity via the environment variable `QUIET`. For example:
+
+    # QUIET=false ./install.sh
+
 # Adding maps
 
 There are at least three ways to add maps.
