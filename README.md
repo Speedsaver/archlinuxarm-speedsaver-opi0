@@ -47,6 +47,8 @@ then access your board and run the following command (as root):
 
 	# mv /home/alarm/map.bin /usr/local/share/navit/maps
 
+Note that for multiple files, you may use globbing, e.g. `*.bin`.
+
 ## Example #2 (using curl)
 
 Access your board and download the map straight into the directory:
