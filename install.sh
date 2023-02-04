@@ -51,12 +51,11 @@ run pacman --noconfirm -S base-devel usbutils alsa-utils lm_sensors git meson \
 
 echo "-> Fetching, compiling, and installing ArduiPi_OLED"
 run git clone https://github.com/Speedsaver/ArduiPi_OLED
-run cd ArduiPi_OLED && run make && run PREFIX=/usr make install && cd ..
+cd ArduiPi_OLED && run make && run PREFIX=/usr make install && cd ..
 
 echo "-> Fetching, compiling, and installing navit"
 run git clone https://github.com/Speedsaver/navit
-cd navit && run meson setup build && cd build && run ninja \
-  && run ninja install
+cd navit && run meson setup build && cd build && run ninja && run ninja install
 
 cd "$ROOT" || (echo "Failed to change directory to $ROOT, exiting." && exit 1)
 
@@ -84,7 +83,7 @@ echo "-> Copying files to /usr/local/share/navit"
 if [ ! -d /usr/local/share/navit/maps ]; then
   run mkdir -p /usr/local/share/navit/maps
 fi
-cp -r rootfs/usr/share/navit/* /usr/local/share/navit
+run cp -r rootfs/usr/share/navit/* /usr/local/share/navit
 
 echo "-> Copying files to /usr/local/share/speedsaver"
 if [ ! -d /usr/local/share/speedsaver ]; then
@@ -98,7 +97,7 @@ run chmod +x /usr/local/bin/gps-logger.sh
 echo "-> Copying gps-logger.service to /etc/systemd/system"
 run cp rootfs/etc/systemd/system/gps-logger.service /etc/systemd/system
 #echo "-> Enabling service: gps-logger"
-#systemctl enable gps-logger.service
+#run systemctl enable gps-logger.service
 
 echo "-> Copying journald.conf to /etc/systemd"
 run cp rootfs/etc/systemd/journald.conf /etc/systemd
