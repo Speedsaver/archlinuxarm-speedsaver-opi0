@@ -17,7 +17,12 @@ The default root password is `root`.
 
 The `install.sh` script serves the purpose of automating the set up of `Speedsaver`.
 
-Access your board[1], and install `git` as it is not installed by default:
+Access your board[1], and perform the following commands (if have not done so):
+
+	# pacman-key --init
+	# pacman-key --populate archlinuxarm
+
+and install `git` as it is not installed by default:
 
 	# pacman -S git
 

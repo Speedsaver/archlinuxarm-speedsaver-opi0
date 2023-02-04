@@ -37,11 +37,6 @@ run() {
 
 cd "$HOME" || (echo "Failed to change directory to $HOME, exiting." && exit 1)
 
-echo "-> Initializing pacman keyring"
-run pacman-key --init
-echo "-> Populating pacman keyring (archlinuxarm)"
-run pacman-key --populate archlinuxarm
-
 echo "-> Performing a full system upgrade"
 run pacman --noconfirm -Syu
 
