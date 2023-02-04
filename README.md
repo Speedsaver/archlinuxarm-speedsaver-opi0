@@ -19,13 +19,13 @@ The `install.sh` script serves the purpose of automating the set up of `Speedsav
 
 Access your board[1], and install `git` as it is not installed by default:
 
-    # pacman -S git
+	# pacman -S git
 
 then clone this repository and run the script as root.
 
 You can specify verbosity via the environment variable `QUIET`. For example:
 
-    # QUIET=false ./install.sh
+	# QUIET=false ./install.sh
 
 [1] Use the serial console or SSH to the IP address given to the board.
 
@@ -35,7 +35,7 @@ There are at least three ways to add maps.
 The directory is `/usr/local/share/navit/maps` on the board with Arch Linux.
 Do not forget to restart `navit` after adding the maps:
 
-    # systemctl restart navit
+	# systemctl restart navit
 
 ## Example #1 (using scp)
 
