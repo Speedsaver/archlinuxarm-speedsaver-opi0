@@ -51,7 +51,7 @@ run pacman --noconfirm -S base-devel usbutils alsa-utils lm_sensors git meson \
 
 echo "-> Fetching, compiling, and installing ArduiPi_OLED"
 run git clone https://github.com/Speedsaver/ArduiPi_OLED
-cd ArduiPi_OLED && run make && run PREFIX=/usr make install && cd ..
+cd ArduiPi_OLED && run make && PREFIX=/usr run make install && cd ..
 
 echo "-> Fetching, compiling, and installing navit"
 run git clone https://github.com/Speedsaver/navit
