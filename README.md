@@ -16,7 +16,13 @@ The default user is `alarm`, and its password is `alarm`.
 The default root password is `root`.
 
 The `install.sh` script serves the purpose of automating the set up of `Speedsaver`.
-All you have to do is access your board[1] and run the script as root.
+
+Access your board[1], and install `git` as it is not installed by default:
+
+    # pacman -S git
+
+then clone this repository and run the script as root.
+
 You can specify verbosity via the environment variable `QUIET`. For example:
 
     # QUIET=false ./install.sh
