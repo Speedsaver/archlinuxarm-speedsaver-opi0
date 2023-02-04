@@ -56,9 +56,12 @@ Access your board and download the map straight into the directory:
 
 ## Example #3 (using mount and cp)
 
-Mount the storage device (e.g. USB stick, here `/dev/sdc1`):
+Access your board, then mount the storage device (e.g. USB stick, here `/dev/sdc1`):
 
 	# mount /dev/sdc1 /mnt
+
+and copy the `map.bin` file to the target directory:
+
 	# cp /mnt/map.bin /usr/local/share/navit/maps
 
 # Authors
